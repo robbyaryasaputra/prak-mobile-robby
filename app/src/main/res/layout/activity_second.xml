@@ -14,7 +14,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="60dp" android:layout_marginEnd="24dp"
         android:gravity="center"
-        android:text="Destinasi Impian Menantimu!"
+        android:text="Destinasi Impian Menantimu!!!!"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         android:textStyle="bold"

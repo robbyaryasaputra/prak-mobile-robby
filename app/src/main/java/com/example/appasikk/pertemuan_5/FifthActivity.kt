@@ -18,21 +18,25 @@ class FifthActivity : AppCompatActivity() {
         binding = ActivityFifthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Improvisasi Toolbar: Menggunakan CollapsingToolbarLayout (di XML)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = "Activity Fifth"
-            subtitle = "Ini adalah subtitle"
             setDisplayHomeAsUpEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         }
 
         binding.btnWebView.setOnClickListener {
             val intent = Intent(this, WebViewActivity::class.java)
             startActivity(intent)
         }
+
+        // Improvisasi Vector Asset: Klik pada FAB dengan custom icon star
+        binding.fabAction.setOnClickListener {
+            Toast.makeText(this, "Improvisasi: Custom Star FAB Clicked!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Improvisasi Option Menu: Menu dengan Sub-menu (didefinisikan di main_menu.xml)
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
@@ -41,6 +45,14 @@ class FifthActivity : AppCompatActivity() {
         return when (item.itemId) {
             android.R.id.home -> {
                 onBackPressedDispatcher.onBackPressed()
+                true
+            }
+            R.id.action_about -> {
+                Toast.makeText(this, "Improvisasi: Sub-menu Tentang Aplikasi diklik", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.action_feedback -> {
+                Toast.makeText(this, "Improvisasi: Sub-menu Kirim Masukan diklik", Toast.LENGTH_SHORT).show()
                 true
             }
             R.id.action_settings -> {

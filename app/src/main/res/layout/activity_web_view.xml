@@ -13,13 +13,24 @@
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
 
+        <!-- Improvisasi Toolbar di WebView: Menambahkan Subtitle dinamis -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:titleTextColor="@android:color/white"
+            app:subtitleTextColor="#EEEEEE"
             app:layout_scrollFlags="scroll|enterAlways"/>
+
+        <!-- Improvisasi WebView: Progress Bar untuk loading -->
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:indicatorColor="@android:color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

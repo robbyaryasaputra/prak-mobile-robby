@@ -2,6 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Improvisasi Option Menu: Menambahkan Sub-menu -->
+    <item
+        android:id="@+id/action_more"
+        android:title="Lainnya"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/action_about"
+                android:title="Tentang Aplikasi" />
+            <item
+                android:id="@+id/action_feedback"
+                android:title="Kirim Masukan" />
+        </menu>
+    </item>
+
     <item
         android:id="@+id/action_settings"
         android:title="Settings"

@@ -1,10 +1,12 @@
 package com.example.appasikk
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.appasikk.databinding.ActivityMainBinding
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val sharedPref = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -38,6 +42,15 @@ class MainActivity : AppCompatActivity() {
                 .setTitle("Konfirmasi Logout")
                 .setMessage("Apakah Anda yakin ingin logout?")
                 .setPositiveButton("Ya") { _, _ ->
+                    // Hapus status login dari SharedPreferences dengan benar
+                    sharedPref.edit {
+                        putBoolean("isLogin", false)
+                        remove("username")
+                    }
+                    
+                    // Kembali ke AuthActivity
+                    val intent = Intent(this, AuthActivity::class.java)
+                    startActivity(intent)
                     finish()
                 }
                 .setNegativeButton("Tidak", null)

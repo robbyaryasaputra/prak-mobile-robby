@@ -10,7 +10,8 @@ import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.appasikk.databinding.ActivityMainBinding
-import com.example.appasikk.pertemuan_4.FourthActivity
+import com.example.appasikk.Home.pertemuan_4.FourthActivity
+import com.example.appasikk.Home.pertemuan_7.SeventhActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -55,6 +56,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 .setNegativeButton("Tidak", null)
                 .show()
+        }
+        binding.buttonFragment.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
+            startActivity(intent) // Mengeksekusi perpindahan halaman
         }
     }
 }

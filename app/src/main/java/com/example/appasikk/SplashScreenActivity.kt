@@ -32,10 +32,10 @@ class SplashScreenActivity : AppCompatActivity() {
 
             if (isLogin) {
                 // Jika isLogin bernilai true → arahkan ke MainActivity
-                startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
+                startActivity(Intent(this@SplashScreenActivity, BaseActivity::class.java))
             } else {
                 // Jika isLogin bernilai false → arahkan ke AuthActivity
-                startActivity(Intent(this@SplashScreenActivity, AuthActivity::class.java))
+                startActivity(Intent(this@SplashScreenActivity, BaseActivity::class.java))
             }
             finish()
         }

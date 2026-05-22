@@ -13,6 +13,7 @@ import androidx.core.content.edit
 import com.example.appasikk.AuthActivity
 import com.example.appasikk.Home.pertemuan_4.FourthActivity
 import com.example.appasikk.Home.pertemuan_7.SeventhActivity
+import com.example.appasikk.Home.pertemuan_9.NinthActivity
 import com.example.appasikk.R
 import com.example.appasikk.databinding.FragmentHomeBinding
 
@@ -69,5 +70,20 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
             startActivity(intent) // Mengeksekusi perpindahan halaman
         }
+        binding.button9.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -44,6 +44,10 @@ class TenthActivity : AppCompatActivity() {
                         number = 5
                     }
                 }
+                2 -> {
+                    tab.text = "Produk"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_add)
+                }
             }
         }.attach()
     }

@@ -14,6 +14,7 @@ import com.example.appasikk.AuthActivity
 import com.example.appasikk.Home.pertemuan_4.FourthActivity
 import com.example.appasikk.Home.pertemuan_7.SeventhActivity
 import com.example.appasikk.Home.pertemuan_9.NinthActivity
+import com.example.appasikk.Home.pertemuan_10.TenthActivity
 import com.example.appasikk.R
 import com.example.appasikk.databinding.FragmentHomeBinding
 
@@ -74,16 +75,14 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), NinthActivity::class.java)
             startActivity(intent)
         }
+        binding.btnPertemuan10.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
-
-
-
-
-
-
-
-
-
-
-

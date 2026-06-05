@@ -10,13 +10,16 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
+import androidx.lifecycle.lifecycleScope
 import com.example.appasikk.AuthActivity
 import com.example.appasikk.Home.pertemuan_4.FourthActivity
 import com.example.appasikk.Home.pertemuan_7.SeventhActivity
 import com.example.appasikk.Home.pertemuan_9.NinthActivity
 import com.example.appasikk.Home.pertemuan_10.TenthActivity
 import com.example.appasikk.R
+import com.example.appasikk.data.api.CatFactApiClient
 import com.example.appasikk.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
 
 
 class HomeFragment : Fragment() {
@@ -39,6 +42,9 @@ class HomeFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
             title = "Home"
         }
+
+        loadCatFact()
+
         val sharedPref = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(requireContext(), FourthActivity::class.java)
@@ -79,10 +85,22 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun loadCatFact() {
+        lifecycleScope.launch {
+            try {
+                val response = CatFactApiClient.apiService.getCatFact()
+                binding.tvCatFact.text = "\"${response.fact}\""
+            } catch (e: Exception) {
+                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+            }
+        }
     }
 }

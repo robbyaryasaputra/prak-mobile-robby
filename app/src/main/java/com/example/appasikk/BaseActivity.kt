@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.appasikk.Home.HomeFragment
 import com.example.appasikk.Message.MessageFragment
 import com.example.appasikk.More.MoreFragment
+import com.example.appasikk.Note.FragmentNote
 import com.example.appasikk.databinding.ActivityBaseBinding
 import com.example.appasikk.databinding.ActivitySeventhBinding
 
@@ -40,6 +41,11 @@ class BaseActivity : AppCompatActivity() {
 
                 R.id.more -> {
                     replaceFragment(MoreFragment())
+                    true
+                }
+
+                R.id.Note -> {
+                    replaceFragment(FragmentNote())
                     true
                 }
 

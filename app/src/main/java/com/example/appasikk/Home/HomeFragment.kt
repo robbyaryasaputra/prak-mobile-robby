@@ -19,6 +19,7 @@ import com.example.appasikk.Home.pertemuan_4.FourthActivity
 import com.example.appasikk.Home.pertemuan_7.SeventhActivity
 import com.example.appasikk.Home.pertemuan_9.NinthActivity
 import com.example.appasikk.Home.pertemuan_10.TenthActivity
+import com.example.appasikk.Home.pertemuan_13.ThirteenthActivity
 import com.example.appasikk.Home.photo.PhotoAdapter
 import com.example.appasikk.R
 import com.example.appasikk.data.api.CatFactApiClient
@@ -91,6 +92,10 @@ class HomeFragment : Fragment() {
         }
         binding.btnPertemuan10.setOnClickListener {
             val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnPertemuan13.setOnClickListener {
+            val intent = Intent(requireContext(), ThirteenthActivity::class.java)
             startActivity(intent)
         }
 

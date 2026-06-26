@@ -20,6 +20,7 @@ import com.example.appasikk.Home.pertemuan_7.SeventhActivity
 import com.example.appasikk.Home.pertemuan_9.NinthActivity
 import com.example.appasikk.Home.pertemuan_10.TenthActivity
 import com.example.appasikk.Home.pertemuan_13.ThirteenthActivity
+import com.example.appasikk.Home.pertemuan_3.ThirdActivity
 import com.example.appasikk.Home.photo.PhotoAdapter
 import com.example.appasikk.R
 import com.example.appasikk.data.api.CatFactApiClient
@@ -87,7 +88,7 @@ class HomeFragment : Fragment() {
             startActivity(intent) // Mengeksekusi perpindahan halaman
         }
         binding.button9.setOnClickListener {
-            val intent = Intent(requireContext(), NinthActivity::class.java)
+            val intent = Intent(requireContext(), ThirdActivity::class.java)
             startActivity(intent)
         }
         binding.btnPertemuan10.setOnClickListener {

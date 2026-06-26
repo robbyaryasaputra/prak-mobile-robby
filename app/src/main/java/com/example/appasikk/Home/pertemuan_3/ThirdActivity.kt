@@ -14,6 +14,8 @@ import com.example.appasikk.R
 import com.example.appasikk.databinding.ActivityThirdBinding
 import com.example.appasikk.utils.NotificationHelper
 import com.example.appasikk.utils.PermissionHelper
+import com.example.appasikk.utils.ReminderHelper
+import java.util.Calendar
 
 class ThirdActivity : AppCompatActivity() {
     private lateinit var binding: ActivityThirdBinding
@@ -50,13 +52,30 @@ class ThirdActivity : AppCompatActivity() {
         binding.btnKirim.setOnClickListener {
             val noTujuan = binding.inputNoTujuan.text.toString()
             val intent = Intent(this, ThirdResultActivity::class.java)
+//
+//            NotificationHelper.showNotification(
+//                this,
+//                "Pesanan Anda",
+//                "Halo $noTujuan, Pesanan Anda Sedang Diproses",
+//                intent
+//            )
+//        }
+            val calendar = Calendar.getInstance().apply {
+                add(Calendar.MINUTE, 1) // Tambah 1 menit dari sekarang
+            }
 
-            NotificationHelper.showNotification(
-                this,
-                "Pesanan Anda",
-                "Halo $noTujuan, Pesanan Anda Sedang Diproses",
-                intent
+            ReminderHelper.setReminder(
+                context = this, //Jika panggil di fragment maka requireContext()
+                hour = calendar.get(Calendar.HOUR_OF_DAY),
+                minute = calendar.get(Calendar.MINUTE),
+                title = "Reminder 1 Menit",
+                message = "Halo $noTujuan, reminder ini muncul 1 menit setelah tombol ditekan",
+                targetActivity = ThirdResultActivity::class.java
             )
+            Toast.makeText(
+                this,
+                "Silahkan tunggu 1 Menit untuk menerima Notifikasi...",
+                Toast.LENGTH_SHORT
+            ).show()
         }
-    }
-}
+    }}
